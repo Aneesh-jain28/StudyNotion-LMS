@@ -41,7 +41,7 @@ app.use(
 );
 
 // This explicitly handles the OPTIONS preflight request so it doesn't 500 crash!
-app.options('*', cors());
+app.options('/*', cors());
 // ==========================================
 
 app.use(fileUpload({
