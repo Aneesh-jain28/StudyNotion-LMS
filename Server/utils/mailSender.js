@@ -7,7 +7,7 @@ const mailSender = async (email, title, body) => {
     try {
         const msg = {
             to: email, // Jisko OTP bhejna hai
-            from: 'aneeshjain781@gmail.com', // ⚠️ IMP: Yahan EXACTLY wahi email likhna jo SendGrid par verify kiya hai
+            from: 'jainaneesh120@gmail.com',
             subject: title,
             html: body,
         };
