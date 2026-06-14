@@ -28,7 +28,7 @@ app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173", // dev
   "http://localhost:3000", // dev
-  "https://study-notion-navy-seven.vercel.app", // your Vercel frontend
+  "https://study-notion-lms-olive.vercel.app/", // your Vercel frontend
 ];
 
 app.use(cors({
