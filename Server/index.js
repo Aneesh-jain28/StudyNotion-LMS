@@ -20,28 +20,24 @@ const PORT = process.env.PORT || 4000;
 // Database connect
 database.connect();
 
-// Middlewares
+// Middleware
 app.use(express.json());
 app.use(cookieParser());
 
 // ==========================================
-// BULLETPROOF CORS SETUP
+// 100% SECURE & CRASH-PROOF CORS
 // ==========================================
 const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:5173",
-  "https://study-notion-lms-olive.vercel.app" // Your Vercel frontend
+  "http://localhost:5173", // dev
+  "http://localhost:3000", // dev
+  "https://study-notion-lms-olive.vercel.app", // Your Main Vercel Frontend
+  "https://study-notion-lms-git-main-aneesh-jain28s-projects.vercel.app" // Your Vercel Preview Frontend
 ];
 
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
-);
-
-// This explicitly handles the OPTIONS preflight request so it doesn't 500 crash!
-app.options('/*', cors());
+app.use(cors({
+  origin: allowedOrigins, // The cors library handles the array safely behind the scenes!
+  credentials: true,
+}));
 // ==========================================
 
 app.use(fileUpload({
@@ -61,7 +57,11 @@ app.use('/api/v1/reach', contactRoute);
 
 // Default Route
 app.get('/', (req, res) => {
+  if (process.env.NODE_ENV === 'production') {
+    res.redirect('https://study-notion-lms-olive.vercel.app');
+  } else {
     res.send('Backend is running successfully.');
+  }
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
