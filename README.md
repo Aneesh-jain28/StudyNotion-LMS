@@ -3,7 +3,7 @@
 StudyNotion is a full-stack online learning platform (similar to Udemy or Coursera) where **Instructors** can create and sell video courses and **Students** can browse, purchase, and learn from those courses — all in one place.
 
 ---
-
+⚠️ Note: Backend is hosted on Render's free tier and may take 30-50 seconds to spin up on first load if idle. Please wait for the initial load — subsequent requests are fast.
 ## Table of Contents
 
 1. [What Does This App Do?](#what-does-this-app-do)
